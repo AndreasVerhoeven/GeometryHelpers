@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name             = 'SelfSizingScroller'
+    s.name             = 'GeometryHelpers'
     s.version          = '1.0.0'
     s.summary          = 'Helpers for CGRect, CGSize, CGPoint and CGFloat'
     s.homepage         = 'hhttps://github.com/AndreasVerhoeven/GeometryHelpers'
