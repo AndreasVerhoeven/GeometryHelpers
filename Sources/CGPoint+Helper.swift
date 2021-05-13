@@ -7,8 +7,7 @@
 
 import UIKit
 
-extension CGPoint {
-
+public extension CGPoint {
 	/// Returns this point with a different `x` coordinate
 	func with(x: CGFloat) -> CGPoint {
 		return CGPoint(x: x, y: y)

@@ -7,8 +7,7 @@
 
 import UIKit
 
-extension CGRect
-{
+public extension CGRect {
 	/// The center of this rectangle
 	var center: CGPoint {
 		return CGPoint(x: midX, y: midY)
