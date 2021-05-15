@@ -9,7 +9,7 @@ import UIKit
 
 public extension CGFloat {
 	/// the height of a `hairline`, corresponding to 1 __pixel__, not points.
-	var hairLineHeight: CGFloat {
+	static var hairLineHeight: CGFloat {
 		let scale = UIScreen.main.scale
 		return 1.0 / Swift.max(1, scale)
 	}
