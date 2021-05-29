@@ -13,6 +13,56 @@ public extension CGRect {
 		return CGPoint(x: midX, y: midY)
 	}
 
+	/// The top left corner point of this rectangle
+	var topLeft: CGPoint {
+		return CGPoint(x: minX, y: minY)
+	}
+
+	/// The top right corner point of this rectangle
+	var topRight: CGPoint {
+		return CGPoint(x: maxX, y: minY)
+	}
+
+	/// The bottom left corner point of this rectangle
+	var bottomLeft: CGPoint {
+		return CGPoint(x: minX, y: maxY)
+	}
+
+	/// The bottom right corner point of this rectangle
+	var bottomRight: CGPoint {
+		return CGPoint(x: maxX, y: maxY)
+	}
+
+	/// The middle x coordinate of this rectangle
+	var midX: CGFloat {
+		return minX + width * 0.5
+	}
+
+	/// The middle y coordinate of this rectangle
+	var midY: CGFloat {
+		return minY + height * 0.5
+	}
+
+	/// the top middle point of this rectangle
+	var topMiddle: CGPoint {
+		return CGPoint(x: midX, y: minY)
+	}
+
+	/// the bottom middle point of this rectangle
+	var bottomMiddle: CGPoint {
+		return CGPoint(x: midX, y: maxY)
+	}
+
+	/// the middle left point of this rectangle
+	var midLeft: CGPoint {
+		return CGPoint(x: minX, y: midY)
+	}
+
+	/// the middle right point of this rectangle
+	var midRight: CGPoint {
+		return CGPoint(x: maxX, y: midY)
+	}
+
 	/// Returns this rectangle with a different `origin`
 	func with(origin: CGPoint) -> CGRect {
 		return CGRect(origin: origin, size: size)
@@ -61,6 +111,11 @@ public extension CGRect {
 	/// Returns this rectangle offsetted by the given insets
 	func offsettted(by insets: UIEdgeInsets) -> CGRect {
 		return offsetBy(dx: insets.left, dy: insets.top)
+	}
+
+	/// Returns this rectangle, but insetted by the given insets
+	func insetted(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) -> Self {
+		return inset(by: UIEdgeInsets(top: top, left: left, bottom: bottom, right: right))
 	}
 
 	/// Returns this rectangle with each corner rounded to the nearest pixel

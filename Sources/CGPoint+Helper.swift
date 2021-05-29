@@ -66,6 +66,13 @@ public extension CGPoint {
 		return CGPoint(x: x, y: -y)
 	}
 
+	/// calculates the slope of the line from this point to another point
+	func slope(to other: CGPoint) -> CGFloat {
+		let widthDiff = (other.x - x)
+		guard widthDiff != 0 else { return 0 }
+		return  (other.y - y) / widthDiff
+	}
+
 	/// Returns this point rounded to the nearest pixel
 	var roundedToNearestPixel: CGPoint {
 		return CGPoint(x: x.roundedToNearestPixel, y: y.roundedToNearestPixel)
