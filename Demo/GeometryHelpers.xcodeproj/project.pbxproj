@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		497399AA266A642E00C97655 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497399A9266A642E00C97655 /* Line.swift */; };
+		497399AC266A645A00C97655 /* FloatingPointEquality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497399AB266A645A00C97655 /* FloatingPointEquality.swift */; };
+		497399AE266A64C800C97655 /* Slope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497399AD266A64C800C97655 /* Slope.swift */; };
+		497399B0266A64E500C97655 /* LineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497399AF266A64E500C97655 /* LineSegment.swift */; };
+		497399B2266A654900C97655 /* CGPoint+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497399B1266A654900C97655 /* CGPoint+Equality.swift */; };
+		497399B6266A6A5900C97655 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497399B5266A6A5900C97655 /* Circle.swift */; };
+		497399B8266A6CFD00C97655 /* CircleArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497399B7266A6CFD00C97655 /* CircleArc.swift */; };
 		49A6F724264D8DFB002EB98D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6F723264D8DFB002EB98D /* AppDelegate.swift */; };
 		49A6F726264D8DFB002EB98D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6F725264D8DFB002EB98D /* SceneDelegate.swift */; };
 		49A6F728264D8DFB002EB98D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6F727264D8DFB002EB98D /* ViewController.swift */; };
@@ -22,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		497399A9266A642E00C97655 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		497399AB266A645A00C97655 /* FloatingPointEquality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPointEquality.swift; sourceTree = "<group>"; };
+		497399AD266A64C800C97655 /* Slope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slope.swift; sourceTree = "<group>"; };
+		497399AF266A64E500C97655 /* LineSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSegment.swift; sourceTree = "<group>"; };
+		497399B1266A654900C97655 /* CGPoint+Equality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Equality.swift"; sourceTree = "<group>"; };
+		497399B5266A6A5900C97655 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		497399B7266A6CFD00C97655 /* CircleArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleArc.swift; sourceTree = "<group>"; };
 		49A6F720264D8DFB002EB98D /* GeometryHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeometryHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A6F723264D8DFB002EB98D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49A6F725264D8DFB002EB98D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +103,13 @@
 				49A6F73C264D8E87002EB98D /* CGRect+Helper.swift */,
 				49A6F73E264D8E9A002EB98D /* CGFloat+Helpers.swift */,
 				49A6F740264D8EB6002EB98D /* UIView+GeometryHelpers.swift */,
+				497399A9266A642E00C97655 /* Line.swift */,
+				497399AD266A64C800C97655 /* Slope.swift */,
+				497399AB266A645A00C97655 /* FloatingPointEquality.swift */,
+				497399AF266A64E500C97655 /* LineSegment.swift */,
+				497399B1266A654900C97655 /* CGPoint+Equality.swift */,
+				497399B5266A6A5900C97655 /* Circle.swift */,
+				497399B7266A6CFD00C97655 /* CircleArc.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -165,14 +186,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497399B2266A654900C97655 /* CGPoint+Equality.swift in Sources */,
 				49A6F73F264D8E9A002EB98D /* CGFloat+Helpers.swift in Sources */,
 				49A6F73B264D8E73002EB98D /* CGPoint+Helper.swift in Sources */,
+				497399AC266A645A00C97655 /* FloatingPointEquality.swift in Sources */,
 				49A6F741264D8EB6002EB98D /* UIView+GeometryHelpers.swift in Sources */,
 				49A6F728264D8DFB002EB98D /* ViewController.swift in Sources */,
 				49A6F724264D8DFB002EB98D /* AppDelegate.swift in Sources */,
+				497399B6266A6A5900C97655 /* Circle.swift in Sources */,
 				49A6F726264D8DFB002EB98D /* SceneDelegate.swift in Sources */,
+				497399AA266A642E00C97655 /* Line.swift in Sources */,
+				497399AE266A64C800C97655 /* Slope.swift in Sources */,
 				49A6F745264D9B1F002EB98D /* CGSize+Helper.swift in Sources */,
+				497399B8266A6CFD00C97655 /* CircleArc.swift in Sources */,
 				49A6F73D264D8E87002EB98D /* CGRect+Helper.swift in Sources */,
+				497399B0266A64E500C97655 /* LineSegment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

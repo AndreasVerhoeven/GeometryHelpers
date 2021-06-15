@@ -68,9 +68,7 @@ public extension CGPoint {
 
 	/// calculates the slope of the line from this point to another point
 	func slope(to other: CGPoint) -> CGFloat {
-		let widthDiff = (other.x - x)
-		guard widthDiff != 0 else { return 0 }
-		return  (other.y - y) / widthDiff
+		return Slope(from: self, to: other).rawValue
 	}
 
 	/// Returns this point rounded to the nearest pixel

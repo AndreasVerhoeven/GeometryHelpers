@@ -36,7 +36,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		titleLabel.text = "This is a Flipped Title"
 		titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
 		titleLabel.numberOfLines = 0
