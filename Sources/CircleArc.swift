@@ -88,7 +88,7 @@ public struct CircleArc: Hashable {
 	}
 
 	/// checks if the given angle is on the circle arc
-	public func containsAngle(_ angle: CGFloat, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func contains(angle: CGFloat, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
 		let normalizedAngle = angle.normalizedAngle
 		if isClockwise {
 			return normalizedAngle.isLargerOrAlmostEqual(to: start.angle, tolerance: tolerance)
@@ -101,9 +101,9 @@ public struct CircleArc: Hashable {
 	}
 
 	/// checks if the given point is on the circle arc
-	public func contains(other point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func contains(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
 		guard let angle = circle.angle(for: point, tolerance: tolerance) else { return false }
-		return containsAngle(angle, tolerance: tolerance)
+		return contains(angle: angle, tolerance: tolerance)
 	}
 
 	/// Checks if this circle arc is almost equal to the other, with a given tolerance

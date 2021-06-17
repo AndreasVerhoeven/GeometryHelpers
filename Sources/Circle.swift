@@ -15,6 +15,12 @@ public struct Circle {
 	/// the radius of the circle
 	public var radius: CGFloat
 
+	/// Creates a circle
+	public init(center: CGPoint, radius: CGFloat) {
+		self.center = center
+		self.radius = radius
+	}
+
 	/// checks if a given point is on a the circle
 	public func isOnCircle(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
 		return (pow(point.x - center.x, 2) + pow(point.y - center.y, 2)).isAlmostEqual(to: pow(radius, 2), tolerance: tolerance)

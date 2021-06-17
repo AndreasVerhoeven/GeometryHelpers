@@ -53,7 +53,7 @@ public struct LineSegment {
 	/// - Parameters:
 	///		- point: the point to check if it is on this line segment
 	/// - Returns: true iff `point` is on the line segment
-	public func contains(other point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func contains(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
 		guard line.contains(point: point, tolerance: tolerance) else { return false }
 
 		let dl = CGPoint(x: end.x - start.x, y: end.y - start.y)

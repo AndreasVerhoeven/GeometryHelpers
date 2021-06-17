@@ -85,4 +85,19 @@ public extension CGPoint {
 	var flooredNearestPixel: CGPoint {
 		return CGPoint(x: x.flooredToNearestPixel, y: y.flooredToNearestPixel)
 	}
+
+	/// Returns this point rounded to full points (e.g. integers)
+	var roundedToFullPoints: CGPoint {
+		return CGPoint(x: round(x), y: round(y))
+	}
+
+	/// Returns this point rounded to full points (e.g. integers)
+	var ceiledToFullPoints: CGPoint {
+		return CGPoint(x: ceil(x), y: ceil(y))
+	}
+
+	/// Returns this point floored to full points (e.g. integers)
+	var flooredToFullPoints: CGPoint {
+		return CGPoint(x: floor(x), y: floor(y))
+	}
 }
