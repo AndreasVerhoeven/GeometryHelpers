@@ -33,16 +33,6 @@ public extension CGRect {
 		return CGPoint(x: maxX, y: maxY)
 	}
 
-	/// The middle x coordinate of this rectangle
-	var midX: CGFloat {
-		return minX + width * 0.5
-	}
-
-	/// The middle y coordinate of this rectangle
-	var midY: CGFloat {
-		return minY + height * 0.5
-	}
-
 	/// the top middle point of this rectangle
 	var topMiddle: CGPoint {
 		return CGPoint(x: midX, y: minY)
