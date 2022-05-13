@@ -107,6 +107,26 @@ public extension CGRect {
 	func insetted(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) -> Self {
 		return inset(by: UIEdgeInsets(top: top, left: left, bottom: bottom, right: right))
 	}
+	
+	/// Returns this rectangle with setting minX to a value, while keeping the maxX equal
+	func adjustingMinX(to value: CGFloat) -> Self {
+		return CGRect(x: value, y: minY, width: width + (minX - value), height: height)
+	}
+	
+	/// Returns this rectangle with setting maxX to a value, while keeping the minX equal
+	func adjustingMaxX(to value: CGFloat) -> Self {
+		return CGRect(x: minX, y: minY, width: width + (value - maxX), height: height)
+	}
+	
+	/// Returns this rectangle with setting minY to a value, while keeping the maxY equal
+	func adjustingMinY(to value: CGFloat) -> Self {
+		return CGRect(x: minX, y: value, width: width, height: height + (minY - value))
+	}
+	
+	/// Returns this rectangle with setting maxY to a value, while keeping the minY equal
+	func adjustingMaxY(to value: CGFloat) -> Self {
+		return CGRect(x: minX, y: minY, width: width, height: height + (value - maxY))
+	}
 
 	/// Returns this rectangle with each corner rounded to the nearest pixel
 	var roundedToNearestPixel: CGRect {
