@@ -134,7 +134,7 @@ public extension Line {
 	///		- point: the point we want the perpendicular line to go thru
 	///
 	/// - Returns: the perpendicular line if point is on this line, otherwise nil
-	func perpendicular(at point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Line? {
+	func perpendicular(at point: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> Line? {
 		guard contains(point: point, tolerance: tolerance) else { return nil }
 		return Self(point: point, slope: slope.perpendicular)
 	}
@@ -203,7 +203,7 @@ public extension Line {
 	///		- other: the point we want to check for being on this line
 	///
 	/// - Returns: true iff `other` is on this line
-	func contains(point other: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	func contains(point other: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		if isHorizontal {
 			return point.y.isAlmostEqual(to: other.y, tolerance: tolerance)
 		} else if isVertical {
@@ -214,7 +214,7 @@ public extension Line {
 	}
 
 	/// Checks if this line is almost equal to the other, with a given tolerance
-	func isAlmostEqual(to other: Self, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	func isAlmostEqual(to other: Self, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return point.isAlmostEqual(to: other.point, tolerance: tolerance)
 			&& slope.isAlmostEqual(to: other.slope, tolerance: tolerance)
 	}
@@ -242,7 +242,7 @@ public extension Line {
 	/// - Parameters:
 	///		- other: the other line to intersect with
 	/// - Returns: an IntersectionResult holding the intersection information
-	func intersection(with other: Line, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> IntersectionResult {
+	func intersection(with other: Line, tolerance: CGFloat = .defaultGeometryTolerance) -> IntersectionResult {
 		guard slope != other.slope else {
 			/// the same slope, so we must be parallel or the same line
 			return self.isAlmostEqual(to: other, tolerance: tolerance) ? .sameLine : .parallel
@@ -286,7 +286,7 @@ public extension Line {
 	/// - Parameters:
 	///		- other: the other line to intersect with
 	/// - Returns: the intersection point if uniquely available, otherwise nil
-	func intersectionPoint(with other: Line, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> CGPoint? {
+	func intersectionPoint(with other: Line, tolerance: CGFloat = .defaultGeometryTolerance) -> CGPoint? {
 		switch intersection(with: other, tolerance: tolerance) {
 			case .sameLine, .parallel: return nil
 			case .intersect(let point): return point

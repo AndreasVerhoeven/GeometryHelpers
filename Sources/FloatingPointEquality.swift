@@ -10,7 +10,6 @@ import Foundation
 // taken from https://github.com/apple/swift-evolution/blob/main/proposals/0259-approximately-equal.md
 
 extension FloatingPoint {
-
 	@inlinable
 	func isSmallerOrAlmostEqual(
 		to other: Self,

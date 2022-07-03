@@ -22,7 +22,7 @@ public struct CircleArc: Hashable {
 	/// 	- clockwise: true if the arc is in the clock wise direction
 	/// 	- tolerance: the tolerance to use for calculations
 	/// - Returns: the created arc, or nil if any of the points are not on the circle
-	public init?(circle: Circle, startPoint: CGPoint, endPoint: CGPoint, clockwise: Bool, tolerance: CGFloat = .ulpOfOne.squareRoot()) {
+	public init?(circle: Circle, startPoint: CGPoint, endPoint: CGPoint, clockwise: Bool, tolerance: CGFloat = .defaultGeometryTolerance) {
 		guard let startAngle = circle.angle(for: startPoint, tolerance: tolerance) else { return nil }
 		guard let endAngle = circle.angle(for: endPoint, tolerance: tolerance) else { return nil }
 
@@ -56,7 +56,7 @@ public struct CircleArc: Hashable {
 	/// 	- clockwise: true if the arc is in the clock wise direction
 	/// 	- tolerance: the tolerance to use for calculations
 	/// - Returns: the created arc, or nil if the end point is not on the circle.
-	public init?(center: CGPoint, startPoint: CGPoint, endPoint: CGPoint, clockwise: Bool, tolerance: CGFloat = .ulpOfOne.squareRoot()) {
+	public init?(center: CGPoint, startPoint: CGPoint, endPoint: CGPoint, clockwise: Bool, tolerance: CGFloat = .defaultGeometryTolerance) {
 		let radius = sqrt(pow(startPoint.x - center.x, 2) + pow(startPoint.y - center.y, 2))
 		let circle = Circle(center: center, radius: radius)
 
@@ -76,7 +76,7 @@ public struct CircleArc: Hashable {
 	/// 	- endAngle: the end angle of the circle
 	/// 	- clockwise: true if the arc is in the clock wise direction
 	/// 	- tolerance: the tolerance to use for calculations
-	public init(center: CGPoint, startPoint: CGPoint, endAngle: CGFloat, clockwise: Bool, tolerance: CGFloat = .ulpOfOne.squareRoot()) {
+	public init(center: CGPoint, startPoint: CGPoint, endAngle: CGFloat, clockwise: Bool, tolerance: CGFloat = .defaultGeometryTolerance) {
 		let radius = sqrt(pow(startPoint.x - center.x, 2) + pow(startPoint.y - center.y, 2))
 		let circle = Circle(center: center, radius: radius)
 
@@ -88,7 +88,7 @@ public struct CircleArc: Hashable {
 	}
 
 	/// checks if the given angle is on the circle arc
-	public func contains(angle: CGFloat, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func contains(angle: CGFloat, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		let normalizedAngle = angle.normalizedAngle
 		if isClockwise {
 			return normalizedAngle.isLargerOrAlmostEqual(to: start.angle, tolerance: tolerance)
@@ -101,13 +101,13 @@ public struct CircleArc: Hashable {
 	}
 
 	/// checks if the given point is on the circle arc
-	public func contains(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func contains(point: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		guard let angle = circle.angle(for: point, tolerance: tolerance) else { return false }
 		return contains(angle: angle, tolerance: tolerance)
 	}
 
 	/// Checks if this circle arc is almost equal to the other, with a given tolerance
-	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return circle.isAlmostEqual(to: other.circle, tolerance: tolerance)
 			&& start.isAlmostEqual(to: other.start, tolerance: tolerance)
 			&& end.isAlmostEqual(to: other.end, tolerance: tolerance)
@@ -133,7 +133,7 @@ public struct CirclePoint {
 	public var angle: CGFloat
 
 	/// Checks if this circle arc is almost equal to the other, with a given tolerance
-	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return point.isAlmostEqual(to: other.point, tolerance: tolerance)
 			&& angle.isAlmostEqual(to: other.angle, tolerance: tolerance)
 	}

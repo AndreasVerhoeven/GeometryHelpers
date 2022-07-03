@@ -57,7 +57,7 @@ public struct Slope: RawRepresentable, Hashable {
 	}
 
 	/// Checks if this slope is almost equal to the other, with a given tolerance
-	func isAlmostEqual(to other: Self, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	func isAlmostEqual(to other: Self, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return rawValue.isAlmostEqual(to: other.rawValue, tolerance: tolerance)
 	}
 }

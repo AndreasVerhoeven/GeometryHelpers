@@ -43,7 +43,7 @@ public struct LineSegment {
 	}
 
 	/// Checks if this line segment is almost equal to the other, with a given tolerance
-	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return start.isAlmostEqual(to: other.start, tolerance: tolerance)
 			&& end.isAlmostEqual(to: other.end, tolerance: tolerance)
 	}
@@ -53,7 +53,7 @@ public struct LineSegment {
 	/// - Parameters:
 	///		- point: the point to check if it is on this line segment
 	/// - Returns: true iff `point` is on the line segment
-	public func contains(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func contains(point: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		guard line.contains(point: point, tolerance: tolerance) else { return false }
 
 		let dl = CGPoint(x: end.x - start.x, y: end.y - start.y)

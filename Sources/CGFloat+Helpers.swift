@@ -40,4 +40,8 @@ public extension CGFloat {
 		let scale = UIScreen.main.scale
 		return floor(self * scale) / scale
 	}
+	
+	
+	/// the tolerance used by default for geometry calculations
+	static var defaultGeometryTolerance = Self.ulpOfOne.squareRoot()
 }

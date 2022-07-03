@@ -29,24 +29,24 @@ public struct Circle {
 	}
 
 	/// checks if a given point is on a the circle
-	public func isOnCircle(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func isOnCircle(point: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return (pow(point.x - center.x, 2) + pow(point.y - center.y, 2)).isAlmostEqual(to: pow(radius, 2), tolerance: tolerance)
 	}
 
 	/// checks if the given point is inside of the circle
-	public func isInsideCircle(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func isInsideCircle(point: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return (pow(point.x - center.x, 2) + pow(point.y - center.y, 2)).isSmallerOrAlmostEqual(to: pow(radius, 2), tolerance: tolerance)
 	}
 
 	/// gets the angle (in radians) for a point on the circle
-	public func angle(for point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> CGFloat? {
+	public func angle(for point: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> CGFloat? {
 		guard isOnCircle(point: point, tolerance: tolerance) else { return nil }
 		return atan2(point.y - center.y, point.x - center.x)
 	}
 
 	/// gets the point on the circle for the given angle (in radians)
-	public func point(for angle: CGFloat, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> CGPoint {
-		guard radius.isAlmostZero(absoluteTolerance: tolerance) else { return center }
+	public func point(for angle: CGFloat, tolerance: CGFloat = .defaultGeometryTolerance) -> CGPoint {
+		guard radius.isAlmostZero(absoluteTolerance: tolerance) == false else { return center }
 
 		return CGPoint(x: radius * sin(angle) + center.x,
 					   y: radius * cos(angle) + center.y)
@@ -54,19 +54,19 @@ public struct Circle {
 
 	/// gets the tangent line for a point on the circle. If the point is not on the circle,
 	/// will return nil
-	public func tangent(at point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Line? {
+	public func tangent(at point: CGPoint, tolerance: CGFloat = .defaultGeometryTolerance) -> Line? {
 		guard isOnCircle(point: point, tolerance: tolerance) else { return nil }
 		return Line(tangentFromPointOnCircle: point, center: center)
 	}
 
 	/// gets the tangent line for for point on the circle at the given angle (in radians).
-	public func tangent(for angle: CGFloat, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Line {
+	public func tangent(for angle: CGFloat, tolerance: CGFloat = .defaultGeometryTolerance) -> Line {
 		let point = point(for: angle, tolerance: tolerance)
 		return Line(tangentFromPointOnCircle: point, center: center)
 	}
 
 	/// Checks if this circle is almost equal to the other, with a given tolerance
-	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
+	public func isAlmostEqual(to other: Self, tolerance: CGFloat = .defaultGeometryTolerance) -> Bool {
 		return center.isAlmostEqual(to: other.center, tolerance: tolerance)
 			&& radius.isAlmostEqual(to: other.radius, tolerance: tolerance)
 	}
