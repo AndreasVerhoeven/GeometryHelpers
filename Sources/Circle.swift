@@ -20,6 +20,13 @@ public struct Circle {
 		self.center = center
 		self.radius = radius
 	}
+	
+	
+	/// Creates a circle that fits in the given rect
+	public init(in rect: CGRect) {
+		self.center = rect.center
+		self.radius = min(rect.width * 0.5, rect.height * 0.5)
+	}
 
 	/// checks if a given point is on a the circle
 	public func isOnCircle(point: CGPoint, tolerance: CGFloat = .ulpOfOne.squareRoot()) -> Bool {
