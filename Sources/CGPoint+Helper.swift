@@ -8,6 +8,21 @@
 import UIKit
 
 public extension CGPoint {
+	/// Returns a point with `x` and `y` set to `value`
+	static func all(_ value: CGFloat) -> CGPoint {
+		return CGPoint(x: value, y: value)
+	}
+
+	/// Returns a point with `x` set to `value` and `y` to 0
+	static func x(_ value: CGFloat) -> CGPoint {
+		return CGPoint(x: value, y: 0)
+	}
+
+	/// Returns a point with `y` set to `value` and `x` to 0
+	static func y(_ value: CGFloat) -> CGPoint {
+		return CGPoint(x: 0, y: value)
+	}
+
 	/// Returns this point with a different `x` coordinate
 	func with(x: CGFloat) -> CGPoint {
 		return CGPoint(x: x, y: y)

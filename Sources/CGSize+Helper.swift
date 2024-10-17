@@ -8,6 +8,11 @@
 import UIKit
 
 public extension CGSize {
+	/// Returns a size with `width` and `height` set to `value`
+	static func all(_ value: CGFloat) -> CGSize {
+		return CGSize(width: value, height: value)
+	}
+
 	/// Returns a size that makes `other` fit in this size, while maintaing aspect ratio
 	func sizeThatFitsSize(_ other: CGSize) -> CGSize {
 		let width = Swift.min(self.width * other.height / self.height, other.width)
