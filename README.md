@@ -14,6 +14,11 @@ Helpers such as `roundedToNearestPixel` to round a float to the nearest pixel, i
 
 Helpers such as `with(x:)`, `with(y:)` to quickly change a component.
 
+### Creating
+- `all(_:)` creates a point with x and y set to the given value
+- `x(_:)` creates a point with x set to the given value, y to 0
+- `y(_:)` creates a point withyx set to the given value, x to 0
+
 ### Changing
 - `with(x:)` new point with a given x
 - `with(y:)` new point with a given y
@@ -51,6 +56,9 @@ Helpers such as `with(x:)`, `with(y:)` to quickly change a component.
 
 - `min(_:)` returns the minimum dimensions of self and another size
 - `max(_:)` returns the maximum dimensions self and another size
+
+### Creating
+- `all(_:)` creates a size with width and height set to the given value
 
 ### Converting to Rects 
 
